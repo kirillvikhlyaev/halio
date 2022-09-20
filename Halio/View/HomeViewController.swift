@@ -23,6 +23,23 @@ class HomeViewController: UIViewController {
         self.view.backgroundColor = K.AppColors.primary
         self.view.addSubview(pageLabel)
         pageLabel.center = self.view.center
+        getTestButton()
+    }
+    
+    func getTestButton() {
+        let button = UIButton(frame: CGRect(x: 100, y: 100 , width: 100, height: 50))
+        button.setTitle("Test", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 21, weight: .bold)
+        button.backgroundColor = K.AppColors.secondary
+        button.layer.cornerRadius = 25
+        button.titleEdgeInsets = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
+        button.addTarget(self, action: #selector(onTestClick), for: .touchUpInside)
+        
+        self.view.addSubview(button)
+    }
+    
+    @objc func onTestClick() {
+        self.navigationController?.pushViewController(PlayerViewController(), animated: true)
     }
     
     func setupBottomNavBar() {
