@@ -10,14 +10,14 @@ import UIKit
 class HomeViewController: UIViewController {
     
     let pageLabel: UILabel = {
-       let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
         label.text = "Главная"
         label.textColor = .white
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
         return label
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = K.AppColors.primary
@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
         
         present(tabBarVC, animated: false)
     }
-
-
+    
+    
 }
 

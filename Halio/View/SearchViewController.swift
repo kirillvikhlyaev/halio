@@ -8,9 +8,9 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
     let pageLabel: UILabel = {
-       let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
         label.text = "Поиск"
         label.textColor = .white
         label.textAlignment = .center

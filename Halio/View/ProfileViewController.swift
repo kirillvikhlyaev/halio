@@ -8,15 +8,15 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
     let stack: UIStackView = {
-            $0.axis = .vertical
+        $0.axis = .vertical
         $0.alignment = .center
         $0.distribution = .equalSpacing
-            $0.spacing = 10
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            return $0
-        }(UIStackView())
+        $0.spacing = 10
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIStackView())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +24,10 @@ class ProfileViewController: UIViewController {
         
         buttonsInit()
         initStackConstraints()
-
+        
     }
     
-  
+    
     func initStackConstraints() {
         NSLayoutConstraint.activate([
             stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: +40),
@@ -65,5 +65,5 @@ class ProfileViewController: UIViewController {
         stack.addArrangedSubview(username)
         stack.addArrangedSubview(email)
     }
-
+    
 }
