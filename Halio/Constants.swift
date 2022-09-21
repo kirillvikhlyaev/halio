@@ -14,4 +14,9 @@ class K {
         static let secondary = UIColor(named: "secondaryColor")
         static let white = UIColor.white
     }
+    class Images {
+        static let placeholder = "placeholder"
+        static let disk = "diskImage"
+        static let diskShadow = "diskImageShadow"
+    }
 }

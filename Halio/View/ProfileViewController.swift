@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
     
     func buttonsInit() {
         let avatar = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
-        avatar.image = UIImage(named: "placeholder")
+        avatar.image = UIImage(named: K.Images.placeholder)
         avatar.layer.masksToBounds = false
         avatar.clipsToBounds = true
         avatar.layer.cornerRadius = avatar.frame.height/2
