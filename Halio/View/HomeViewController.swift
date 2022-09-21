@@ -9,16 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    
-    let pageLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        label.text = "Главная"
-        label.textColor = .white
-        label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 20.0)
-        return label
-    }()
-    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = K.AppColors.primary
@@ -45,7 +35,7 @@ class HomeViewController: UIViewController {
             self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0),
             self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 34),
             self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
-        
+            
         ])
     }
     
@@ -108,5 +98,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
+    }
+    
+    // TODO: После добавления перехода при нажатии на ячейку убрать эту часть кода
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Table index \(indexPath.row)")
+        self.navigationController?.pushViewController(PlayerViewController(), animated: true)
     }
 }

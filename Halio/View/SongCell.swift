@@ -11,6 +11,7 @@ class SongCell: UITableViewCell {
     
     var songsArray = ["Первая", "Вторая", "Третья", "Четвертая", "Пятая", "Шестая", "Седьмая"]
     var namesArray = ["Автор 1", "Автор 2", "Автор 3", "Автор 4", "Автор 5", "Автор 6", "Автор 7"]
+    
 
     public lazy var headerLabel: UILabel = {
         let label = UILabel()
@@ -114,6 +115,11 @@ extension SongCell: UICollectionViewDataSource, UICollectionViewDelegate {
         )
 
         return cell
+    }
+    
+    //TODO: Необходимо сделать переход на страницу плеера
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Cell index: \(indexPath.row)")
     }
  
 }
