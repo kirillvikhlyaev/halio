@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */; };
 		ED4FEB4728DA6945000764B2 /* drake.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED4FEB4628DA6945000764B2 /* drake.mp3 */; };
+		2ABB2B1028DB1356001B36BB /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B0F28DB1356001B36BB /* SongCell.swift */; };
+		2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */; };
+		2ABB2B1628DB7E2C001B36BB /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */; };
 		EDB1C97428D9E09300B03DF9 /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */; };
 		EDB1C97628D9E0A100B03DF9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */; };
 		EDB1C97828D9E0AC00B03DF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97728D9E0AC00B03DF9 /* ProfileViewController.swift */; };
@@ -22,6 +25,9 @@
 /* Begin PBXFileReference section */
 		ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		ED4FEB4628DA6945000764B2 /* drake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = drake.mp3; path = ../../../../../Downloads/drake.mp3; sourceTree = "<group>"; };
+		2ABB2B0F28DB1356001B36BB /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
+		2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Abel-Regular.ttf"; sourceTree = "<group>"; };
 		EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EDB1C97728D9E0AC00B03DF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +59,8 @@
 				EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */,
 				EDB1C97728D9E0AC00B03DF9 /* ProfileViewController.swift */,
 				ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */,
+				2ABB2B0F28DB1356001B36BB /* SongCell.swift */,
+				2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -61,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				ED4FEB4628DA6945000764B2 /* drake.mp3 */,
+				2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */,
 				EDC703DD28D9108B00A1B921 /* Assets.xcassets */,
 				EDC703DF28D9108B00A1B921 /* LaunchScreen.storyboard */,
 				EDC703E228D9108B00A1B921 /* Info.plist */,
@@ -153,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ABB2B1628DB7E2C001B36BB /* Abel-Regular.ttf in Resources */,
 				EDC703E128D9108B00A1B921 /* LaunchScreen.storyboard in Resources */,
 				ED4FEB4728DA6945000764B2 /* drake.mp3 in Resources */,
 				EDC703DE28D9108B00A1B921 /* Assets.xcassets in Resources */,
@@ -168,8 +178,10 @@
 			files = (
 				EDC703D928D9108800A1B921 /* HomeViewController.swift in Sources */,
 				EDC703D528D9108800A1B921 /* AppDelegate.swift in Sources */,
+				2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */,
 				EDB1C97828D9E0AC00B03DF9 /* ProfileViewController.swift in Sources */,
 				ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */,
+				2ABB2B1028DB1356001B36BB /* SongCell.swift in Sources */,
 				EDB1C97628D9E0A100B03DF9 /* SearchViewController.swift in Sources */,
 				EDB1C97428D9E09300B03DF9 /* FavoriteListViewController.swift in Sources */,
 				EDB1C97B28D9E0F400B03DF9 /* Constants.swift in Sources */,
