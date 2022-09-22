@@ -110,13 +110,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func setupPlayerView() {
         let playerView = UIView()
         playerView.backgroundColor = K.AppColors.secondary
+        playerView.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addSubview(playerView)
         
         NSLayoutConstraint.activate([
             playerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             playerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            playerView.heightAnchor.constraint(equalToConstant: 200),
+            playerView.heightAnchor.constraint(equalToConstant: 175),
             playerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
