@@ -60,17 +60,13 @@ class PlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.tabBarController?.tabBar.backgroundColor = K.AppColors.secondary
         self.title = "Играет сейчас"
-        
-        
-//        self.view.backgroundColor = K.AppColors.primary
         setupBackground()
         setup()
     }
-
+    
     func setupBackground() {
-
-
         background.frame = self.view.bounds
         background.image = UIImage(named: K.Images.playerBg)
         let backgroundOverlay = UIImageView(frame: self.view.bounds)
@@ -78,7 +74,7 @@ class PlayerViewController: UIViewController {
         backgroundOverlay.layer.opacity = 0.9
 
         background.addSubview(backgroundOverlay)
-
+        
         self.view.addSubview(background)
     }
     
@@ -243,16 +239,15 @@ class PlayerViewController: UIViewController {
     }
     
     func setup() {
+        view.addSubview(mainStack)
         setupInfo()
         setupIndicator()
         setupControls()
-        background.addSubview(mainStack)
-        
         NSLayoutConstraint.activate([
-            mainStack.topAnchor.constraint(equalTo: self.background.topAnchor, constant: +200),
-            mainStack.bottomAnchor.constraint(equalTo: self.background.bottomAnchor, constant: -200),
-            mainStack.leadingAnchor.constraint(equalTo: self.background.leadingAnchor),
-            mainStack.trailingAnchor.constraint(equalTo: self.background.trailingAnchor),
+            mainStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: +200),
+            mainStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -200),
+            mainStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            mainStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         ])
     }
 }
