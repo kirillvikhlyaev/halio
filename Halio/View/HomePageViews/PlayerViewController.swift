@@ -60,31 +60,27 @@ class PlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.title = "Играет сейчас"
+        self.title = "Играет сейчас"
         
-        self.view.backgroundColor = K.AppColors.primary
-//        setupBackground()
+        
+//        self.view.backgroundColor = K.AppColors.primary
+        setupBackground()
         setup()
     }
-//
-//    func setupBackground() {
-//
-//
-//
-//        background.image = UIImage(named: K.Images.playerBg)
-//        background.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-//        background.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
-//
-//        let backgroundOverlay = UIImageView()
-//        backgroundOverlay.image = UIImage(named: K.Images.playerBgOverlay)
-//        backgroundOverlay.layer.opacity = 0.8
-//        backgroundOverlay.widthAnchor.constraint(equalTo: background.widthAnchor).isActive = true
-//        backgroundOverlay.heightAnchor.constraint(equalTo: background.heightAnchor).isActive = true
-//
-//        background.addSubview(backgroundOverlay)
-//
-//        self.view.addSubview(background)
-//    }
+
+    func setupBackground() {
+
+
+        background.frame = self.view.bounds
+        background.image = UIImage(named: K.Images.playerBg)
+        let backgroundOverlay = UIImageView(frame: self.view.bounds)
+        backgroundOverlay.image = UIImage(named: K.Images.playerBgOverlay)
+        backgroundOverlay.layer.opacity = 0.9
+
+        background.addSubview(backgroundOverlay)
+
+        self.view.addSubview(background)
+    }
     
     func setupInfo() {
         let avatar = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
@@ -116,7 +112,7 @@ class PlayerViewController: UIViewController {
         let artistName = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         artistName.text = "Drake"
         artistName.font = .systemFont(ofSize: 16, weight: .bold)
-        artistName.textColor = UIColor.gray
+        artistName.textColor = K.AppColors.white
         artistName.translatesAutoresizingMaskIntoConstraints = false
         artistName.textAlignment = .center
         
@@ -212,13 +208,13 @@ class PlayerViewController: UIViewController {
         let currentTime = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         currentTime.text = "0:00"
         currentTime.font = .systemFont(ofSize: 16, weight: .regular)
-        currentTime.textColor = UIColor.gray
+        currentTime.textColor = K.AppColors.white
         currentTime.textAlignment = .center
         
         let maxTime = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         maxTime.text = "3:57"
         maxTime.font = .systemFont(ofSize: 16, weight: .regular)
-        maxTime.textColor = UIColor.gray
+        maxTime.textColor = K.AppColors.white
         maxTime.textAlignment = .center
         
         timeStack.addArrangedSubview(currentTime)
@@ -250,13 +246,13 @@ class PlayerViewController: UIViewController {
         setupInfo()
         setupIndicator()
         setupControls()
-        self.view.addSubview(mainStack)
+        background.addSubview(mainStack)
         
         NSLayoutConstraint.activate([
-            mainStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: +200),
-            mainStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -200),
-            mainStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            mainStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            mainStack.topAnchor.constraint(equalTo: self.background.topAnchor, constant: +200),
+            mainStack.bottomAnchor.constraint(equalTo: self.background.bottomAnchor, constant: -200),
+            mainStack.leadingAnchor.constraint(equalTo: self.background.leadingAnchor),
+            mainStack.trailingAnchor.constraint(equalTo: self.background.trailingAnchor),
         ])
     }
 }
