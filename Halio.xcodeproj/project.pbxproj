@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */; };
-		ED4FEB4728DA6945000764B2 /* drake.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED4FEB4628DA6945000764B2 /* drake.mp3 */; };
 		2ABB2B1028DB1356001B36BB /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B0F28DB1356001B36BB /* SongCell.swift */; };
 		2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */; };
 		2ABB2B1628DB7E2C001B36BB /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */; };
+		ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */; };
+		ED4FEB4728DA6945000764B2 /* drake.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED4FEB4628DA6945000764B2 /* drake.mp3 */; };
 		EDB1C97428D9E09300B03DF9 /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */; };
 		EDB1C97628D9E0A100B03DF9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */; };
 		EDB1C97828D9E0AC00B03DF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97728D9E0AC00B03DF9 /* ProfileViewController.swift */; };
@@ -23,11 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		ED4FEB4628DA6945000764B2 /* drake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = drake.mp3; path = ../../../../../Downloads/drake.mp3; sourceTree = "<group>"; };
 		2ABB2B0F28DB1356001B36BB /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Abel-Regular.ttf"; sourceTree = "<group>"; };
+		ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		ED4FEB4628DA6945000764B2 /* drake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = drake.mp3; path = ../../../../../Downloads/drake.mp3; sourceTree = "<group>"; };
 		EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EDB1C97728D9E0AC00B03DF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -54,13 +54,10 @@
 		EDB1C97228D9E07A00B03DF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EDC703D828D9108800A1B921 /* HomeViewController.swift */,
-				EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */,
-				EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */,
-				EDB1C97728D9E0AC00B03DF9 /* ProfileViewController.swift */,
-				ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */,
-				2ABB2B0F28DB1356001B36BB /* SongCell.swift */,
-				2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */,
+				EDEE7D1928DBB1A2009F72DE /* HomePageViews */,
+				EDEE7D1A28DBB1B2009F72DE /* FavoritesListViews */,
+				EDEE7D1B28DBB1CA009F72DE /* SearchViews */,
+				EDEE7D1C28DBB1D4009F72DE /* ProfileViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -102,6 +99,41 @@
 				EDB1C97A28D9E0F400B03DF9 /* Constants.swift */,
 			);
 			path = Halio;
+			sourceTree = "<group>";
+		};
+		EDEE7D1928DBB1A2009F72DE /* HomePageViews */ = {
+			isa = PBXGroup;
+			children = (
+				EDC703D828D9108800A1B921 /* HomeViewController.swift */,
+				ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */,
+				2ABB2B0F28DB1356001B36BB /* SongCell.swift */,
+				2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */,
+			);
+			path = HomePageViews;
+			sourceTree = "<group>";
+		};
+		EDEE7D1A28DBB1B2009F72DE /* FavoritesListViews */ = {
+			isa = PBXGroup;
+			children = (
+				EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */,
+			);
+			path = FavoritesListViews;
+			sourceTree = "<group>";
+		};
+		EDEE7D1B28DBB1CA009F72DE /* SearchViews */ = {
+			isa = PBXGroup;
+			children = (
+				EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */,
+			);
+			path = SearchViews;
+			sourceTree = "<group>";
+		};
+		EDEE7D1C28DBB1D4009F72DE /* ProfileViews */ = {
+			isa = PBXGroup;
+			children = (
+				EDB1C97728D9E0AC00B03DF9 /* ProfileViewController.swift */,
+			);
+			path = ProfileViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
