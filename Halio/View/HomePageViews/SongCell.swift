@@ -105,9 +105,8 @@ extension SongCell: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        
+
         self.backgroundColor = .black
-        
         cell.setupCell(
             title: songsArray[indexPath.row],
             author: namesArray[indexPath.row],

@@ -11,7 +11,6 @@
 		2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */; };
 		2ABB2B1628DB7E2C001B36BB /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */; };
 		ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */; };
-		ED4FEB4728DA6945000764B2 /* drake.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED4FEB4628DA6945000764B2 /* drake.mp3 */; };
 		EDB1C97428D9E09300B03DF9 /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */; };
 		EDB1C97628D9E0A100B03DF9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */; };
 		EDB1C97828D9E0AC00B03DF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97728D9E0AC00B03DF9 /* ProfileViewController.swift */; };
@@ -27,7 +26,6 @@
 		2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Abel-Regular.ttf"; sourceTree = "<group>"; };
 		ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		ED4FEB4628DA6945000764B2 /* drake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = drake.mp3; path = ../../../../../Downloads/drake.mp3; sourceTree = "<group>"; };
 		EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EDB1C97728D9E0AC00B03DF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 		EDB1C97928D9E0D800B03DF9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				ED4FEB4628DA6945000764B2 /* drake.mp3 */,
 				2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */,
 				EDC703DD28D9108B00A1B921 /* Assets.xcassets */,
 				EDC703DF28D9108B00A1B921 /* LaunchScreen.storyboard */,
@@ -196,7 +193,6 @@
 			files = (
 				2ABB2B1628DB7E2C001B36BB /* Abel-Regular.ttf in Resources */,
 				EDC703E128D9108B00A1B921 /* LaunchScreen.storyboard in Resources */,
-				ED4FEB4728DA6945000764B2 /* drake.mp3 in Resources */,
 				EDC703DE28D9108B00A1B921 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
