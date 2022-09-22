@@ -72,7 +72,7 @@ class PlayerViewController: UIViewController {
         let backgroundOverlay = UIImageView(frame: self.view.bounds)
         backgroundOverlay.image = UIImage(named: K.Images.playerBgOverlay)
         backgroundOverlay.layer.opacity = 0.9
-
+        
         background.addSubview(backgroundOverlay)
         
         self.view.addSubview(background)
