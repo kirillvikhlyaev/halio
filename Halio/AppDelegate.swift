@@ -26,6 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarVC.tabBar.backgroundColor = K.AppColors.secondary
         tabBarVC.tabBar.tintColor = K.AppColors.white
         
+        tabBarVC.tabBar.layer.masksToBounds = true
+        tabBarVC.tabBar.isTranslucent = true
+        tabBarVC.tabBar.barStyle = .default
+        tabBarVC.tabBar.layer.cornerRadius = 20
+        tabBarVC.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = tabBarVC
         window.makeKeyAndVisible()
