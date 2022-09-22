@@ -40,7 +40,8 @@ class SearchViewController : UIViewController {
         view.addSubview(tableView)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Serch"
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.tintColor = K.AppColors.white
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
@@ -49,6 +50,10 @@ class SearchViewController : UIViewController {
 extension SearchViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(PlayerViewController(), animated: true)
     }
 }
 
@@ -67,6 +72,7 @@ extension SearchViewController: UITableViewDataSource{
         cell?.backgroundColor = backgroundColor
         cell?.textLabel?.textColor = musicColor
         cell?.detailTextLabel?.textColor = autorColor
+        cell?.selectionStyle = .none
         var itemSong: String
         var itemAutor: String
         if isFiltering {
