@@ -18,5 +18,7 @@ class K {
         static let placeholder = "placeholder"
         static let disk = "diskImage"
         static let diskShadow = "diskImageShadow"
+        static let playerBgOverlay = "playerBackgroundOverlay"
+        static let playerBg = "playerBackground"
     }
 }

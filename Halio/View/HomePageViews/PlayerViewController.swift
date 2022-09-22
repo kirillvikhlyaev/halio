@@ -13,14 +13,9 @@ class PlayerViewController: UIViewController {
     var playToggle: Bool = false
     var player: AVAudioPlayer?
     
-    let infoStack: UIStackView = {
-        $0.axis = .vertical
-        $0.alignment = .center
-        $0.distribution = .equalSpacing
-        $0.spacing = 5
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        return $0
-    }(UIStackView())
+    let infoView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+    
+    let background = UIImageView()
     
     let controlStack: UIStackView = {
         $0.axis = .horizontal
@@ -65,10 +60,26 @@ class PlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.title = "Играет сейчас"
+        self.title = "Играет сейчас"
         
-        self.view.backgroundColor = K.AppColors.primary
+        
+//        self.view.backgroundColor = K.AppColors.primary
+        setupBackground()
         setup()
+    }
+
+    func setupBackground() {
+
+
+        background.frame = self.view.bounds
+        background.image = UIImage(named: K.Images.playerBg)
+        let backgroundOverlay = UIImageView(frame: self.view.bounds)
+        backgroundOverlay.image = UIImage(named: K.Images.playerBgOverlay)
+        backgroundOverlay.layer.opacity = 0.9
+
+        background.addSubview(backgroundOverlay)
+
+        self.view.addSubview(background)
     }
     
     func setupInfo() {
@@ -81,31 +92,52 @@ class PlayerViewController: UIViewController {
         avatar.widthAnchor.constraint(equalToConstant: 200).isActive = true
         avatar.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
+        let backgroundAvatar = UIImageView(frame: CGRect(x: 0, y: 0, width: 220, height: 220))
+        backgroundAvatar.image = UIImage(named: K.Images.diskShadow)
+        backgroundAvatar.layer.masksToBounds = false
+        backgroundAvatar.clipsToBounds = true
+        backgroundAvatar.layer.cornerRadius = backgroundAvatar.frame.height/2
+        backgroundAvatar.translatesAutoresizingMaskIntoConstraints = false
+        backgroundAvatar.widthAnchor.constraint(equalToConstant: 220).isActive = true
+        backgroundAvatar.heightAnchor.constraint(equalToConstant: 220).isActive = true
+        backgroundAvatar.addSubview(avatar)
+        
         let trackName = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         trackName.text = "God's Plan"
         trackName.font = .systemFont(ofSize: 21, weight: .regular)
         trackName.textColor = K.AppColors.white
+        trackName.translatesAutoresizingMaskIntoConstraints = false
         trackName.textAlignment = .center
         
         let artistName = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         artistName.text = "Drake"
         artistName.font = .systemFont(ofSize: 16, weight: .bold)
-        artistName.textColor = UIColor.gray
+        artistName.textColor = K.AppColors.white
+        artistName.translatesAutoresizingMaskIntoConstraints = false
         artistName.textAlignment = .center
         
-        infoStack.addArrangedSubview(avatar)
-        infoStack.addArrangedSubview(trackName)
-        infoStack.addArrangedSubview(artistName)
+        infoView.addSubview(backgroundAvatar)
+        infoView.addSubview(trackName)
+        infoView.addSubview(artistName)
+        mainStack.addArrangedSubview(infoView)
         
-        mainStack.addArrangedSubview(infoStack)
-        initInfoStackConstraints()
-    }
-    
-    func initInfoStackConstraints() {
         NSLayoutConstraint.activate([
-            infoStack.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor, constant: +40),
-            infoStack.trailingAnchor.constraint(equalTo: mainStack.trailingAnchor, constant: -40),
+            infoView.heightAnchor.constraint(equalToConstant: 300),
+            infoView.widthAnchor.constraint(equalToConstant: 300),
+            
+            backgroundAvatar.centerXAnchor.constraint(equalTo: infoView.centerXAnchor),
+            backgroundAvatar.topAnchor.constraint(equalTo: infoView.topAnchor),
+            
+            avatar.centerXAnchor.constraint(equalTo: backgroundAvatar.centerXAnchor),
+            avatar.centerYAnchor.constraint(equalTo: backgroundAvatar.centerYAnchor),
+            
+            trackName.topAnchor.constraint(equalTo: backgroundAvatar.bottomAnchor, constant: +15),
+            trackName.centerXAnchor.constraint(equalTo: infoView.centerXAnchor),
+            
+            artistName.topAnchor.constraint(equalTo: trackName.bottomAnchor, constant: +5),
+            artistName.centerXAnchor.constraint(equalTo: infoView.centerXAnchor)
         ])
+        
     }
     
     func setupControls() {
@@ -126,10 +158,7 @@ class PlayerViewController: UIViewController {
         controlStack.addArrangedSubview(nextButton)
         
         mainStack.addArrangedSubview(controlStack)
-        initControlStackConstraints()
-    }
-    
-    func initControlStackConstraints() {
+        
         NSLayoutConstraint.activate([
             controlStack.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor, constant: +80),
             controlStack.trailingAnchor.constraint(equalTo: mainStack.trailingAnchor, constant: -80),
@@ -170,23 +199,22 @@ class PlayerViewController: UIViewController {
     @objc func onNextButtonTap() {}
     
     func setupIndicator() {
-        // Indicator
-        
-        let slider = UISlider(frame: CGRect(x: 0, y: 0, width: 250, height:50))
-        slider.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        let slider = UISlider()
         slider.value = 0.5
+        slider.tintColor = K.AppColors.secondary
+        slider.translatesAutoresizingMaskIntoConstraints = false
         slider.addTarget(self, action: #selector(didSlider(_:)), for: .valueChanged)
         
         let currentTime = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         currentTime.text = "0:00"
         currentTime.font = .systemFont(ofSize: 16, weight: .regular)
-        currentTime.textColor = UIColor.gray
+        currentTime.textColor = K.AppColors.white
         currentTime.textAlignment = .center
         
         let maxTime = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         maxTime.text = "3:57"
         maxTime.font = .systemFont(ofSize: 16, weight: .regular)
-        maxTime.textColor = UIColor.gray
+        maxTime.textColor = K.AppColors.white
         maxTime.textAlignment = .center
         
         timeStack.addArrangedSubview(currentTime)
@@ -196,41 +224,35 @@ class PlayerViewController: UIViewController {
         indicatorStack.addArrangedSubview(timeStack)
         
         mainStack.addArrangedSubview(indicatorStack)
-        initIndicatorStackConstraints()
-        initTimeStackConstraints()
+        
+        NSLayoutConstraint.activate([
+            indicatorStack.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor),
+            indicatorStack.trailingAnchor.constraint(equalTo: mainStack.trailingAnchor),
+            
+            slider.leadingAnchor.constraint(equalTo: indicatorStack.leadingAnchor),
+            slider.trailingAnchor.constraint(equalTo: indicatorStack.trailingAnchor),
+            slider.heightAnchor.constraint(equalToConstant: 35),
+            
+            timeStack.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor, constant: +40),
+            timeStack.trailingAnchor.constraint(equalTo: mainStack.trailingAnchor, constant: -40),
+        ])
     }
     
     @objc func didSlider(_ slider: UISlider) {
         let value = slider.value
     }
     
-    func initIndicatorStackConstraints() {
-        NSLayoutConstraint.activate([
-            indicatorStack.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor),
-            indicatorStack.trailingAnchor.constraint(equalTo: mainStack.trailingAnchor),
-        ])
-    }
-    func initTimeStackConstraints() {
-        NSLayoutConstraint.activate([
-            timeStack.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor, constant: +40),
-            timeStack.trailingAnchor.constraint(equalTo: mainStack.trailingAnchor, constant: -40),
-        ])
-    }
-    
     func setup() {
         setupInfo()
         setupIndicator()
         setupControls()
-        self.view.addSubview(mainStack)
-        initMainStackConstraints()
-    }
-    
-    func initMainStackConstraints() {
+        background.addSubview(mainStack)
+        
         NSLayoutConstraint.activate([
-            mainStack.topAnchor.constraint(equalTo: view.topAnchor, constant: +200),
-            mainStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
-            mainStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mainStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mainStack.topAnchor.constraint(equalTo: self.background.topAnchor, constant: +200),
+            mainStack.bottomAnchor.constraint(equalTo: self.background.bottomAnchor, constant: -200),
+            mainStack.leadingAnchor.constraint(equalTo: self.background.leadingAnchor),
+            mainStack.trailingAnchor.constraint(equalTo: self.background.trailingAnchor),
         ])
     }
 }
