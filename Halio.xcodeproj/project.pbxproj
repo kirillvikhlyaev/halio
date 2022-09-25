@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A12BE7528DDC2F400929F5B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A12BE7428DDC2F300929F5B /* ListViewController.swift */; };
 		2ABB2B1028DB1356001B36BB /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B0F28DB1356001B36BB /* SongCell.swift */; };
 		2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */; };
 		2ABB2B1628DB7E2C001B36BB /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A12BE7428DDC2F300929F5B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2ABB2B0F28DB1356001B36BB /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Abel-Regular.ttf"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				EDC703D828D9108800A1B921 /* HomeViewController.swift */,
+				2A12BE7428DDC2F300929F5B /* ListViewController.swift */,
 				ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */,
 				2ABB2B0F28DB1356001B36BB /* SongCell.swift */,
 				2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */,
@@ -212,6 +215,7 @@
 				2ABB2B1028DB1356001B36BB /* SongCell.swift in Sources */,
 				EDB1C97628D9E0A100B03DF9 /* SearchViewController.swift in Sources */,
 				EDB1C97428D9E09300B03DF9 /* FavoriteListViewController.swift in Sources */,
+				2A12BE7528DDC2F400929F5B /* ListViewController.swift in Sources */,
 				EDB1C97B28D9E0F400B03DF9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

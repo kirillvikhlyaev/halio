@@ -9,8 +9,11 @@ import UIKit
 
 class SongCell: UITableViewCell {
     
-    var songsArray = ["Первая", "Вторая", "Третья", "Четвертая", "Пятая", "Шестая", "Седьмая"]
-    var namesArray = ["Автор 1", "Автор 2", "Автор 3", "Автор 4", "Автор 5", "Автор 6", "Автор 7"]
+    var onSongTap: ((String) -> Void)?
+    var onNextTap: (() -> Void)?
+    
+    var songsArray = ["My song 1", "My song 2", "My song 3", "My song 4", "My song 5", "My song 6", "My song 7"]
+    var namesArray = ["Author 1", "Author 2", "Author 3", "Author 4", "Author 5", "Author 6", "Author 7"]
     
 
     public lazy var headerLabel: UILabel = {
@@ -21,6 +24,19 @@ class SongCell: UITableViewCell {
         label.font = UIFont(name: "Abel-Regular", size: 25)
         return label
     } ()
+    
+    public lazy var nextButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        button.tintColor = UIColor(red: 0.647, green: 0.647, blue: 0.663, alpha: 1)
+        button.addTarget(self, action: #selector(self.nextButtonTapped), for: .touchUpInside)
+        return button
+    } ()
+    
+    @objc private func nextButtonTapped() {
+        self.onNextTap?()
+    }
     
     public lazy var secondLabel: UILabel = {
         let label = UILabel()
@@ -59,6 +75,7 @@ class SongCell: UITableViewCell {
         self.contentView.backgroundColor = K.AppColors.primary
         self.contentView.addSubview(self.headerLabel)
         self.contentView.addSubview(self.secondLabel)
+        self.contentView.addSubview(self.nextButton)
         self.contentView.addSubview(self.songsCollection)
         
         NSLayoutConstraint.activate([
@@ -74,6 +91,10 @@ class SongCell: UITableViewCell {
             self.secondLabel.topAnchor.constraint(equalTo: self.headerLabel.bottomAnchor, constant: 0),
             self.secondLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 0),
             self.secondLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            self.nextButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -34),
+            self.nextButton.centerYAnchor.constraint(equalTo: self.headerLabel.bottomAnchor, constant: 0),
+            self.nextButton.heightAnchor.constraint(equalToConstant: 30),
             
             self.songsCollection.topAnchor.constraint(equalTo: self.secondLabel.bottomAnchor, constant: 16),
             self.songsCollection.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 0),
@@ -118,7 +139,7 @@ extension SongCell: UICollectionViewDataSource, UICollectionViewDelegate {
     
     //TODO: Необходимо сделать переход на страницу плеера
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Cell index: \(indexPath.row)")
+        self.onSongTap?(songsArray[indexPath.row])
     }
  
 }

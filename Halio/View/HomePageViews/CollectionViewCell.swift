@@ -22,7 +22,7 @@ class CollectionViewCell: UICollectionViewCell {
     private lazy var nameLabel: UILabel = {
         let name = UILabel()
         name.backgroundColor = K.AppColors.primary
-        name.font = UIFont(name: "Abel-Regular", size: 12)
+        name.font = UIFont(name: "Abel-Regular", size: 15)
         name.text = "default"
         name.textColor = .white
         name.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +32,7 @@ class CollectionViewCell: UICollectionViewCell {
     private lazy var dateLabel: UILabel = {
         let date = UILabel()
         date.backgroundColor = K.AppColors.primary
-        date.font = UIFont(name: "Abel-Regular", size: 10)
+        date.font = UIFont(name: "Abel-Regular", size: 12)
         date.text = "Default"
         date.textColor = .lightGray
         date.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +54,7 @@ class CollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(self.posterView)
         self.contentView.addSubview(self.nameLabel)
         self.contentView.addSubview(self.dateLabel)
+        self.backgroundColor = K.AppColors.primary
         
         NSLayoutConstraint.activate([
             self.posterView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
