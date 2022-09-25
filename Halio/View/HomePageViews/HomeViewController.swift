@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         tableView.register(SongCell.self, forCellReuseIdentifier: "SongCell")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -31,6 +31,9 @@ class HomeViewController: UIViewController {
         self.view.addSubview(tableView)
         self.setupUI()
         setupPlayerView()
+        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButton
+        backBarButton.tintColor = UIColor(red: 0.831, green: 0.831, blue: 0.831, alpha: 1)
     }
     
     func setupUI() {
@@ -91,6 +94,18 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell", for: indexPath) as! SongCell
         cell.headerLabel.text = section.title
+        cell.onSongTap = {
+            [weak self] song in
+            guard let self = self else { return }
+            let nextVC = PlayerViewController()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+        cell.onNextTap = {
+            [weak self] in
+            guard let self = self else { return }
+            let nextVC = ListViewController()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
         return cell
     }
     
@@ -108,8 +123,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     // TODO: После добавления перехода при нажатии на ячейку убрать эту часть кода
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Table index \(indexPath.row)")
-        self.navigationController?.pushViewController(PlayerViewController(), animated: true)
+        self.navigationController?.pushViewController(ListViewController(), animated: true)
     }
     
 }
@@ -215,4 +229,19 @@ extension HomeViewController {
         playerView.isHidden = true
     }
     @objc func onNextButtonTap() {}
+}
+
+extension UIImage {
+  func withInsets(_ insets: UIEdgeInsets) -> UIImage? {
+    UIGraphicsBeginImageContextWithOptions(
+      CGSize(width: size.width + insets.left + insets.right,
+             height: size.height + insets.top + insets.bottom),
+      false,
+      self.scale)
+    let origin = CGPoint(x: insets.left, y: insets.top)
+    self.draw(at: origin)
+    let imageWithInsets = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return imageWithInsets
+  }
 }

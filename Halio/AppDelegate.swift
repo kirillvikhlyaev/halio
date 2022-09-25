@@ -32,6 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarVC.tabBar.layer.cornerRadius = 20
         tabBarVC.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.shadowColor = .clear
+        appearance.backgroundColor = K.AppColors.primary
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = tabBarVC
         window.makeKeyAndVisible()
