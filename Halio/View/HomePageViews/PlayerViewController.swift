@@ -59,9 +59,11 @@ class PlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = UIColor.white
+      //  self.navigationController?.navigationBar.tintColor = UIColor.white
         self.tabBarController?.tabBar.backgroundColor = K.AppColors.secondary
-        self.title = "Играет сейчас"
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        self.title = ""
         setupBackground()
         setup()
     }
