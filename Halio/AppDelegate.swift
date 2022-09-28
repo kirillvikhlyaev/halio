@@ -23,8 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tabBarVC = UITabBarController()
         tabBarVC.setViewControllers(views, animated: true)
-        tabBarVC.tabBar.backgroundColor = K.AppColors.secondary
-        tabBarVC.tabBar.tintColor = K.AppColors.white
+        
+        UITabBar.appearance().barTintColor = K.AppColors.secondary
+        UITabBar.appearance().backgroundColor = K.AppColors.secondary
+        UITabBar.appearance().tintColor = K.AppColors.white
         
         tabBarVC.tabBar.layer.masksToBounds = true
         tabBarVC.tabBar.isTranslucent = true
@@ -37,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.shadowColor = .clear
         appearance.backgroundColor = K.AppColors.primary
         UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+     //   UINavigationBar.appearance().scrollEdgeAppearance = appearance
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = tabBarVC
