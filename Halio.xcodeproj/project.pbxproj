@@ -12,6 +12,7 @@
 		2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */; };
 		2ABB2B1628DB7E2C001B36BB /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */; };
 		BFECDB4EB49E8E84F8E700B9 /* Pods_Halio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AF70E21C1F18D6E5407858 /* Pods_Halio.framework */; };
+		ED2CF80428E886FC00F772D0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2CF80328E886FC00F772D0 /* Utils.swift */; };
 		ED3109C628E842A400B91360 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ED3109C528E842A400B91360 /* Alamofire */; };
 		ED3109C928E842E700B91360 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3109C828E842E700B91360 /* Track.swift */; };
 		ED3109CB28E842F800B91360 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3109CA28E842F800B91360 /* Album.swift */; };
@@ -38,6 +39,7 @@
 		2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Abel-Regular.ttf"; sourceTree = "<group>"; };
 		C5AF70E21C1F18D6E5407858 /* Pods_Halio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Halio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99069B22B521387CA35C148 /* Pods-Halio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halio.debug.xcconfig"; path = "Target Support Files/Pods-Halio/Pods-Halio.debug.xcconfig"; sourceTree = "<group>"; };
+		ED2CF80328E886FC00F772D0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		ED3109C828E842E700B91360 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		ED3109CA28E842F800B91360 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		ED3109CC28E8472500B91360 /* AlbumFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumFetcher.swift; sourceTree = "<group>"; };
@@ -123,6 +125,8 @@
 				EDC703DD28D9108B00A1B921 /* Assets.xcassets */,
 				EDC703DF28D9108B00A1B921 /* LaunchScreen.storyboard */,
 				EDC703E228D9108B00A1B921 /* Info.plist */,
+				ED2CF80328E886FC00F772D0 /* Utils.swift */,
+				EDB1C97A28D9E0F400B03DF9 /* Constants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -152,7 +156,6 @@
 				ED3109C228E83FD000B91360 /* Network */,
 				EDB1C97228D9E07A00B03DF9 /* View */,
 				EDB1C97928D9E0D800B03DF9 /* Supporting Files */,
-				EDB1C97A28D9E0F400B03DF9 /* Constants.swift */,
 				EDC703D428D9108800A1B921 /* AppDelegate.swift */,
 			);
 			path = Halio;
@@ -307,6 +310,7 @@
 				2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */,
 				EDB1C97828D9E0AC00B03DF9 /* ProfileViewController.swift in Sources */,
 				ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */,
+				ED2CF80428E886FC00F772D0 /* Utils.swift in Sources */,
 				2ABB2B1028DB1356001B36BB /* SongCell.swift in Sources */,
 				EDB1C97628D9E0A100B03DF9 /* SearchViewController.swift in Sources */,
 				EDB1C97428D9E09300B03DF9 /* FavoriteListViewController.swift in Sources */,

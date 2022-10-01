@@ -11,7 +11,10 @@ import AVFoundation
 class PlayerViewController: UIViewController {
     
     var playToggle: Bool = false
-    var player: AVAudioPlayer?
+    var isPaused: Bool = false
+    var player: AVPlayer?
+    
+    let slider = UISlider()
     
     var album = Album(id: "1", name: "Test", artist_name: "Test", image: "", tracks: [Track(id: "1", name: "", duration: "", audio: "")])
     
@@ -20,6 +23,8 @@ class PlayerViewController: UIViewController {
     let infoView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
     
     let background = UIImageView()
+    
+    let currentTime = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
     
     let controlStack: UIStackView = {
         $0.axis = .horizontal
@@ -172,52 +177,61 @@ class PlayerViewController: UIViewController {
     
     @objc func onPrevButtonTap() {}
     @objc func onPlayButtonTap() {
-        if let player = player, player.isPlaying {
-            //Stop
-            playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-            player.pause()
-            
-        } else {
-            //Play
-            let urlString = Bundle.main.path(forResource: "drake", ofType: "mp3")
-            do {
-                try AVAudioSession.sharedInstance().setMode(.default)
-                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
-                guard let urlString = urlString else {
-                    return
+        let url = URL(string: album.tracks[indexOfTrack].audio)
+       
+        do {
+            let playerItem = AVPlayerItem(url: url!)
+            self.player = try AVPlayer(playerItem: playerItem)
+            player!.volume = 1.0
+            if (!playToggle) {
+                isPaused = false
+                if (!isPaused) {
+                    Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+                    player!.play()
                 }
-                
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
-                
-                guard let player = player else {
-                    return
-                }
-                playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-                player.play()
-                
-            } catch {
-                print("Ошибка воспроизведения")
+            } else {
+                player!.pause()
+                isPaused = true
             }
+            playToggle = !playToggle
+            
+        } catch let error as NSError {
+            self.player = nil
+            print(error.localizedDescription)
+        } catch {
+            print("AVPlayer init failed")
+        }
+        
+        if (playToggle) {
+            playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        } else {
+            playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         }
     }
     @objc func onNextButtonTap() {}
     
+    @objc func updateTime() {
+        slider.value = Float(player!.currentTime().seconds)
+        
+        DispatchQueue.main.async {
+            self.currentTime.text = Utils.timeStringFor(seconds: Int(self.player!.currentTime().seconds))
+        }
+        
+    }
+    
     func setupIndicator() {
-        let slider = UISlider()
-        slider.value = 0.5
+        slider.value = 0
+        slider.maximumValue = Float(album.tracks[indexOfTrack].duration)!
         slider.tintColor = K.AppColors.secondary
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.addTarget(self, action: #selector(didSlider(_:)), for: .valueChanged)
         
-        let currentTime = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-        currentTime.text = "0:00"
         currentTime.font = .systemFont(ofSize: 16, weight: .regular)
         currentTime.textColor = K.AppColors.white
         currentTime.textAlignment = .center
         
         let maxTime = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-        maxTime.text = "3:57"
+        maxTime.text = Utils.timeStringFor(seconds: Int(album.tracks[indexOfTrack].duration)!)
         maxTime.font = .systemFont(ofSize: 16, weight: .regular)
         maxTime.textColor = K.AppColors.white
         maxTime.textAlignment = .center
