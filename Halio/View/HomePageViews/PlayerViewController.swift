@@ -13,6 +13,10 @@ class PlayerViewController: UIViewController {
     var playToggle: Bool = false
     var player: AVAudioPlayer?
     
+    var album = Album(id: "1", name: "Test", artist_name: "Test", image: "", tracks: [Track(id: "1", name: "", duration: "", audio: "")])
+    
+    var indexOfTrack = 0
+    
     let infoView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
     
     let background = UIImageView()
@@ -69,11 +73,13 @@ class PlayerViewController: UIViewController {
     }
     
     func setupBackground() {
+        let url = URL(string: album.image)
         background.frame = self.view.bounds
-        background.image = UIImage(named: K.Images.playerBg)
+        background.backgroundColor = K.AppColors.primary
+        
         let backgroundOverlay = UIImageView(frame: self.view.bounds)
-        backgroundOverlay.image = UIImage(named: K.Images.playerBgOverlay)
-        backgroundOverlay.layer.opacity = 0.9
+        backgroundOverlay.kf.setImage(with: url)
+        backgroundOverlay.layer.opacity = 0.2
         
         background.addSubview(backgroundOverlay)
         
@@ -81,8 +87,9 @@ class PlayerViewController: UIViewController {
     }
     
     func setupInfo() {
+        let url = URL(string: album.image)
         let avatar = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-        avatar.image = UIImage(named: K.Images.disk)
+        avatar.kf.setImage(with: url)
         avatar.layer.masksToBounds = false
         avatar.clipsToBounds = true
         avatar.layer.cornerRadius = avatar.frame.height/2
@@ -101,14 +108,14 @@ class PlayerViewController: UIViewController {
         backgroundAvatar.addSubview(avatar)
         
         let trackName = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-        trackName.text = "God's Plan"
+        trackName.text = album.tracks[indexOfTrack].name
         trackName.font = .systemFont(ofSize: 21, weight: .regular)
         trackName.textColor = K.AppColors.white
         trackName.translatesAutoresizingMaskIntoConstraints = false
         trackName.textAlignment = .center
         
         let artistName = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-        artistName.text = "Drake"
+        artistName.text = album.artist_name
         artistName.font = .systemFont(ofSize: 16, weight: .bold)
         artistName.textColor = K.AppColors.white
         artistName.translatesAutoresizingMaskIntoConstraints = false

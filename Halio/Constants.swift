@@ -21,4 +21,9 @@ class K {
         static let playerBgOverlay = "playerBackgroundOverlay"
         static let playerBg = "playerBackground"
     }
+    class Api {
+        static let clientId = "a2f139be"
+    }
 }
+
+// https://api.jamendo.com/v3.0/albums/tracks/?client_id=a2f139be&format=jsonpretty&limit=4

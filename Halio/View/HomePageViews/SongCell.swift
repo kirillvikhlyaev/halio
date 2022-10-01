@@ -9,12 +9,14 @@ import UIKit
 
 class SongCell: UITableViewCell {
     
-    var onSongTap: ((String) -> Void)?
+    var onSongTap: ((Album, Int) -> Void)?
     var onNextTap: (() -> Void)?
     
     var songsArray = ["My song 1", "My song 2", "My song 3", "My song 4", "My song 5", "My song 6", "My song 7"]
     var namesArray = ["Author 1", "Author 2", "Author 3", "Author 4", "Author 5", "Author 6", "Author 7"]
     
+    var album = Album(id: "0", name: "Test", artist_name: "Tester", image: "", tracks: [
+    ])
 
     public lazy var headerLabel: UILabel = {
         let label = UILabel()
@@ -69,6 +71,12 @@ class SongCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func update() {
+        DispatchQueue.main.async {
+            self.songsCollection.reloadData()
+        }
+    }
+    
     private func setupView () {
         self.backgroundColor = K.AppColors.primary
         self.addSubview(contentView)
@@ -104,7 +112,6 @@ class SongCell: UITableViewCell {
     }
 }
 
-
 extension SongCell: UICollectionViewDelegateFlowLayout {
     private var sideInset: CGFloat { return 15 }
     
@@ -121,7 +128,7 @@ extension SongCell: UICollectionViewDelegateFlowLayout {
 extension SongCell: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.songsArray.count
+        self.album.tracks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -129,9 +136,9 @@ extension SongCell: UICollectionViewDataSource, UICollectionViewDelegate {
 
         self.backgroundColor = .black
         cell.setupCell(
-            title: songsArray[indexPath.row],
-            author: namesArray[indexPath.row],
-            posterURL: "placeholder.jpeg"
+            title: album.tracks[indexPath.row].name,
+            author: album.artist_name,
+            posterURL: album.image
         )
 
         return cell
@@ -139,7 +146,7 @@ extension SongCell: UICollectionViewDataSource, UICollectionViewDelegate {
     
     //TODO: Необходимо сделать переход на страницу плеера
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.onSongTap?(songsArray[indexPath.row])
+        self.onSongTap?(album, indexPath.row) // Передаю альбом и индекс трека (Альбом нужен для фото и автора, трэк понятно зачем нужен)
     }
  
 }

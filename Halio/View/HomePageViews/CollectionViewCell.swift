@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CollectionViewCell: UICollectionViewCell {
+    
     
     private lazy var posterView: UIImageView = {
         let poster = UIImageView()
@@ -75,6 +77,7 @@ class CollectionViewCell: UICollectionViewCell {
     func setupCell(title: String, author: String, posterURL: String) {
         self.nameLabel.text = title
         self.dateLabel.text = author
-        self.posterView.image = UIImage(named: "placeholder.jpeg")
+        let url = URL(string: posterURL ?? "https://viewsontop.com/wp-content/uploads/2020/01/placeholder.png")
+        self.posterView.kf.setImage(with: url, placeholder: nil, options: nil, completionHandler: nil)
     }
 }
