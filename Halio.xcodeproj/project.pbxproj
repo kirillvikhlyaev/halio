@@ -11,7 +11,6 @@
 		2ABB2B1028DB1356001B36BB /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B0F28DB1356001B36BB /* SongCell.swift */; };
 		2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */; };
 		2ABB2B1628DB7E2C001B36BB /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */; };
-		CE13691328E3616700A0138A /* FavoritesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13691228E3616700A0138A /* FavoritesListModel.swift */; };
 		ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */; };
 		EDB1C97428D9E09300B03DF9 /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */; };
 		EDB1C97628D9E0A100B03DF9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */; };
@@ -28,7 +27,6 @@
 		2ABB2B0F28DB1356001B36BB /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Abel-Regular.ttf"; sourceTree = "<group>"; };
-		CE13691228E3616700A0138A /* FavoritesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListModel.swift; sourceTree = "<group>"; };
 		ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */,
-				CE13691228E3616700A0138A /* FavoritesListModel.swift */,
 			);
 			path = FavoritesListViews;
 			sourceTree = "<group>";
@@ -213,7 +210,6 @@
 				EDC703D928D9108800A1B921 /* HomeViewController.swift in Sources */,
 				EDC703D528D9108800A1B921 /* AppDelegate.swift in Sources */,
 				2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */,
-				CE13691328E3616700A0138A /* FavoritesListModel.swift in Sources */,
 				EDB1C97828D9E0AC00B03DF9 /* ProfileViewController.swift in Sources */,
 				ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */,
 				2ABB2B1028DB1356001B36BB /* SongCell.swift in Sources */,
