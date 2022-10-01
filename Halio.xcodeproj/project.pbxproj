@@ -11,7 +11,14 @@
 		2ABB2B1028DB1356001B36BB /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B0F28DB1356001B36BB /* SongCell.swift */; };
 		2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */; };
 		2ABB2B1628DB7E2C001B36BB /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */; };
+		BFECDB4EB49E8E84F8E700B9 /* Pods_Halio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5AF70E21C1F18D6E5407858 /* Pods_Halio.framework */; };
+		ED3109C628E842A400B91360 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ED3109C528E842A400B91360 /* Alamofire */; };
+		ED3109C928E842E700B91360 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3109C828E842E700B91360 /* Track.swift */; };
+		ED3109CB28E842F800B91360 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3109CA28E842F800B91360 /* Album.swift */; };
+		ED3109CD28E8472500B91360 /* AlbumFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3109CC28E8472500B91360 /* AlbumFetcher.swift */; };
 		ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */; };
+		ED59FFBA28E8493E00256AD6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED59FFB928E8493E00256AD6 /* NetworkManager.swift */; };
+		ED59FFBD28E8566200256AD6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ED59FFBC28E8566200256AD6 /* Kingfisher */; };
 		EDB1C97428D9E09300B03DF9 /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */; };
 		EDB1C97628D9E0A100B03DF9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */; };
 		EDB1C97828D9E0AC00B03DF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C97728D9E0AC00B03DF9 /* ProfileViewController.swift */; };
@@ -20,14 +27,22 @@
 		EDC703D928D9108800A1B921 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC703D828D9108800A1B921 /* HomeViewController.swift */; };
 		EDC703DE28D9108B00A1B921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDC703DD28D9108B00A1B921 /* Assets.xcassets */; };
 		EDC703E128D9108B00A1B921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDC703DF28D9108B00A1B921 /* LaunchScreen.storyboard */; };
+		EDC7435128E863AE00DEF036 /* FavoritesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC7435028E863AE00DEF036 /* FavoritesListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BBDE5A2AA4DF194FA746E16 /* Pods-Halio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halio.release.xcconfig"; path = "Target Support Files/Pods-Halio/Pods-Halio.release.xcconfig"; sourceTree = "<group>"; };
 		2A12BE7428DDC2F300929F5B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2ABB2B0F28DB1356001B36BB /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		2ABB2B1528DB7E2C001B36BB /* Abel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Abel-Regular.ttf"; sourceTree = "<group>"; };
+		C5AF70E21C1F18D6E5407858 /* Pods_Halio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Halio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D99069B22B521387CA35C148 /* Pods-Halio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halio.debug.xcconfig"; path = "Target Support Files/Pods-Halio/Pods-Halio.debug.xcconfig"; sourceTree = "<group>"; };
+		ED3109C828E842E700B91360 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		ED3109CA28E842F800B91360 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		ED3109CC28E8472500B91360 /* AlbumFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumFetcher.swift; sourceTree = "<group>"; };
 		ED4FEB4428DA56FD000764B2 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		ED59FFB928E8493E00256AD6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		EDB1C97528D9E0A100B03DF9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EDB1C97728D9E0AC00B03DF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +53,7 @@
 		EDC703DD28D9108B00A1B921 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDC703E028D9108B00A1B921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDC703E228D9108B00A1B921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDC7435028E863AE00DEF036 /* FavoritesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,12 +61,50 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED59FFBD28E8566200256AD6 /* Kingfisher in Frameworks */,
+				ED3109C628E842A400B91360 /* Alamofire in Frameworks */,
+				BFECDB4EB49E8E84F8E700B9 /* Pods_Halio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D38B0905FB461CCDAAE6BE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5AF70E21C1F18D6E5407858 /* Pods_Halio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B97922867616B8D96AE80302 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D99069B22B521387CA35C148 /* Pods-Halio.debug.xcconfig */,
+				0BBDE5A2AA4DF194FA746E16 /* Pods-Halio.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED3109C228E83FD000B91360 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				ED3109CC28E8472500B91360 /* AlbumFetcher.swift */,
+				ED59FFB928E8493E00256AD6 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		ED3109C728E842C500B91360 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED3109C828E842E700B91360 /* Track.swift */,
+				ED3109CA28E842F800B91360 /* Album.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EDB1C97228D9E07A00B03DF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +132,8 @@
 			children = (
 				EDC703D328D9108800A1B921 /* Halio */,
 				EDC703D228D9108800A1B921 /* Products */,
+				B97922867616B8D96AE80302 /* Pods */,
+				5D38B0905FB461CCDAAE6BE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,10 +148,12 @@
 		EDC703D328D9108800A1B921 /* Halio */ = {
 			isa = PBXGroup;
 			children = (
-				EDC703D428D9108800A1B921 /* AppDelegate.swift */,
+				ED3109C728E842C500B91360 /* Model */,
+				ED3109C228E83FD000B91360 /* Network */,
 				EDB1C97228D9E07A00B03DF9 /* View */,
 				EDB1C97928D9E0D800B03DF9 /* Supporting Files */,
 				EDB1C97A28D9E0F400B03DF9 /* Constants.swift */,
+				EDC703D428D9108800A1B921 /* AppDelegate.swift */,
 			);
 			path = Halio;
 			sourceTree = "<group>";
@@ -116,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */,
+				EDC7435028E863AE00DEF036 /* FavoritesListModel.swift */,
 			);
 			path = FavoritesListViews;
 			sourceTree = "<group>";
@@ -143,6 +202,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDC703E528D9108B00A1B921 /* Build configuration list for PBXNativeTarget "Halio" */;
 			buildPhases = (
+				A936F9872D601CAF28CBDE3F /* [CP] Check Pods Manifest.lock */,
 				EDC703CD28D9108800A1B921 /* Sources */,
 				EDC703CE28D9108800A1B921 /* Frameworks */,
 				EDC703CF28D9108800A1B921 /* Resources */,
@@ -152,6 +212,10 @@
 			dependencies = (
 			);
 			name = Halio;
+			packageProductDependencies = (
+				ED3109C528E842A400B91360 /* Alamofire */,
+				ED59FFBC28E8566200256AD6 /* Kingfisher */,
+			);
 			productName = Halio;
 			productReference = EDC703D128D9108800A1B921 /* Halio.app */;
 			productType = "com.apple.product-type.application";
@@ -180,6 +244,10 @@
 				Base,
 			);
 			mainGroup = EDC703C828D9108800A1B921;
+			packageReferences = (
+				ED3109C428E842A400B91360 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				ED59FFBB28E8566200256AD6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = EDC703D228D9108800A1B921 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -202,21 +270,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A936F9872D601CAF28CBDE3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Halio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EDC703CD28D9108800A1B921 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EDC703D928D9108800A1B921 /* HomeViewController.swift in Sources */,
+				ED3109C928E842E700B91360 /* Track.swift in Sources */,
 				EDC703D528D9108800A1B921 /* AppDelegate.swift in Sources */,
+				EDC7435128E863AE00DEF036 /* FavoritesListModel.swift in Sources */,
 				2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */,
 				EDB1C97828D9E0AC00B03DF9 /* ProfileViewController.swift in Sources */,
 				ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */,
 				2ABB2B1028DB1356001B36BB /* SongCell.swift in Sources */,
 				EDB1C97628D9E0A100B03DF9 /* SearchViewController.swift in Sources */,
 				EDB1C97428D9E09300B03DF9 /* FavoriteListViewController.swift in Sources */,
+				ED3109CD28E8472500B91360 /* AlbumFetcher.swift in Sources */,
+				ED59FFBA28E8493E00256AD6 /* NetworkManager.swift in Sources */,
 				2A12BE7528DDC2F400929F5B /* ListViewController.swift in Sources */,
 				EDB1C97B28D9E0F400B03DF9 /* Constants.swift in Sources */,
+				ED3109CB28E842F800B91360 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +450,7 @@
 		};
 		EDC703E628D9108B00A1B921 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D99069B22B521387CA35C148 /* Pods-Halio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -380,6 +479,7 @@
 		};
 		EDC703E728D9108B00A1B921 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BBDE5A2AA4DF194FA746E16 /* Pods-Halio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -428,6 +528,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ED3109C428E842A400B91360 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		ED59FFBB28E8566200256AD6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ED3109C528E842A400B91360 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED3109C428E842A400B91360 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		ED59FFBC28E8566200256AD6 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED59FFBB28E8566200256AD6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EDC703C928D9108800A1B921 /* Project object */;
 }

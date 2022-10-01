@@ -14,6 +14,13 @@ class HomeViewController: UIViewController {
     let nextButton = UIButton(frame: CGRect(x: 0, y: 0 , width: 100, height: 100))
     let playerView = UIView()
     
+    var api = AlbumFetcherManager()
+    var albums = [
+        Album(id: "0", name: "Test", artist_name: "Tester", image: "", tracks: []),
+        Album(id: "0", name: "Test", artist_name: "Tester", image: "", tracks: []),
+        Album(id: "0", name: "Test", artist_name: "Tester", image: "", tracks: [])
+    ]
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = K.AppColors.primary
@@ -27,10 +34,12 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        api.delegate = self
+        api.albumFetch(limit: 3)
         self.view.backgroundColor = K.AppColors.primary
         self.view.addSubview(tableView)
         self.setupUI()
-        setupPlayerView()
+//        setupPlayerView()
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButton
         backBarButton.tintColor = UIColor(red: 0.831, green: 0.831, blue: 0.831, alpha: 1)
@@ -94,16 +103,23 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell", for: indexPath) as! SongCell
         cell.headerLabel.text = section.title
+//        print(albums[indexPath.row])
+        cell.album = albums[indexPath.row];
+        cell.update() // Вызываем reloadData() у ячейки таблицы - коллекшнвью
         cell.onSongTap = {
-            [weak self] song in
+            [weak self] album, index in
             guard let self = self else { return }
             let nextVC = PlayerViewController()
+            nextVC.album = album
+            nextVC.indexOfTrack = index
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
         cell.onNextTap = {
-            [weak self] in
+            [weak self] album in
             guard let self = self else { return }
             let nextVC = ListViewController()
+            nextVC.album = album
+            print(album)
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
         return cell
@@ -120,10 +136,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-    
-    // TODO: После добавления перехода при нажатии на ячейку убрать эту часть кода
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(ListViewController(), animated: true)
+        let nextVC = ListViewController()
+        nextVC.album = albums[indexPath.row]
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
 }
@@ -224,7 +241,9 @@ extension HomeViewController {
         ])
     }
     
-    @objc func onPrevButtonTap() {}
+    @objc func onPrevButtonTap() {
+        
+    }
     @objc func onPlayButtonTap() {
         playerView.isHidden = true
     }
@@ -244,4 +263,21 @@ extension UIImage {
     UIGraphicsEndImageContext()
     return imageWithInsets
   }
+}
+
+// MARK: - AlbumFetcher Section
+extension HomeViewController: AlbumFetcher {
+    func didUpdateAlbums(_ albumManager: AlbumFetcherManager, albums: [Album]) {
+        self.albums = albums
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+    
+            
 }
