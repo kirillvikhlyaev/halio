@@ -93,6 +93,17 @@ enum SongsTableSection: Int {
             return "Genre"
         }
     }
+    
+    var index: Int {
+        switch self {
+        case .made:
+            return 0
+        case .recently:
+            return 1
+        case .genre:
+            return 2
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -103,8 +114,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell", for: indexPath) as! SongCell
         cell.headerLabel.text = section.title
-//        print(albums[indexPath.row])
-        cell.album = albums[indexPath.row];
+        print(indexPath.row)
+        print(albums[indexPath.row])
+        cell.album = albums[section.index];
         cell.update() // Вызываем reloadData() у ячейки таблицы - коллекшнвью
         cell.onSongTap = {
             [weak self] album, index in
