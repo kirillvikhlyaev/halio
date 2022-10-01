@@ -23,6 +23,7 @@ class K {
     }
     class Api {
         static let clientId = "a2f139be"
+        static let baseUrl = "https://api.jamendo.com/v3.0"
     }
 }
 

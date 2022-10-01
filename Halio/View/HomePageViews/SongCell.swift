@@ -10,7 +10,7 @@ import UIKit
 class SongCell: UITableViewCell {
     
     var onSongTap: ((Album, Int) -> Void)?
-    var onNextTap: (() -> Void)?
+    var onNextTap: ((Album) -> Void)?
     
     var songsArray = ["My song 1", "My song 2", "My song 3", "My song 4", "My song 5", "My song 6", "My song 7"]
     var namesArray = ["Author 1", "Author 2", "Author 3", "Author 4", "Author 5", "Author 6", "Author 7"]
@@ -37,7 +37,8 @@ class SongCell: UITableViewCell {
     } ()
     
     @objc private func nextButtonTapped() {
-        self.onNextTap?()
+        print(album)
+        self.onNextTap?(album)
     }
     
     public lazy var secondLabel: UILabel = {

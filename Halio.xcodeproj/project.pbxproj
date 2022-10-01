@@ -27,6 +27,7 @@
 		EDC703D928D9108800A1B921 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC703D828D9108800A1B921 /* HomeViewController.swift */; };
 		EDC703DE28D9108B00A1B921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDC703DD28D9108B00A1B921 /* Assets.xcassets */; };
 		EDC703E128D9108B00A1B921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDC703DF28D9108B00A1B921 /* LaunchScreen.storyboard */; };
+		EDC7435128E863AE00DEF036 /* FavoritesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC7435028E863AE00DEF036 /* FavoritesListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		EDC703DD28D9108B00A1B921 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDC703E028D9108B00A1B921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDC703E228D9108B00A1B921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDC7435028E863AE00DEF036 /* FavoritesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB1C97328D9E09300B03DF9 /* FavoriteListViewController.swift */,
+				EDC7435028E863AE00DEF036 /* FavoritesListModel.swift */,
 			);
 			path = FavoritesListViews;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				EDC703D928D9108800A1B921 /* HomeViewController.swift in Sources */,
 				ED3109C928E842E700B91360 /* Track.swift in Sources */,
 				EDC703D528D9108800A1B921 /* AppDelegate.swift in Sources */,
+				EDC7435128E863AE00DEF036 /* FavoritesListModel.swift in Sources */,
 				2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */,
 				EDB1C97828D9E0AC00B03DF9 /* ProfileViewController.swift in Sources */,
 				ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */,

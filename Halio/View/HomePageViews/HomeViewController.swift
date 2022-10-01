@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         api.delegate = self
-        api.albumFetch()
+        api.albumFetch(limit: 3)
         self.view.backgroundColor = K.AppColors.primary
         self.view.addSubview(tableView)
         self.setupUI()
@@ -107,17 +107,19 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.album = albums[indexPath.row];
         cell.update() // Вызываем reloadData() у ячейки таблицы - коллекшнвью
         cell.onSongTap = {
-            [weak self] song, index in
+            [weak self] album, index in
             guard let self = self else { return }
             let nextVC = PlayerViewController()
-            nextVC.album = song
+            nextVC.album = album
             nextVC.indexOfTrack = index
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
         cell.onNextTap = {
-            [weak self] in
+            [weak self] album in
             guard let self = self else { return }
             let nextVC = ListViewController()
+            nextVC.album = album
+            print(album)
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
         return cell
@@ -136,7 +138,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(ListViewController(), animated: true)
+        let nextVC = ListViewController()
+        nextVC.album = albums[indexPath.row]
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
 }

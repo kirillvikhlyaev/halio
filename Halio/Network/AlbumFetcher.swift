@@ -18,9 +18,11 @@ class AlbumFetcherManager {
     var albums = [Album]()
     var delegate: AlbumFetcher?
     
-    let urlString = "https://api.jamendo.com/v3.0/albums/tracks/?client_id=\(K.Api.clientId)&format=jsonpretty&limit=6"
     
-    func albumFetch() {
+    
+    func albumFetch(limit: Int) {
+        let urlString = "\(K.Api.baseUrl)/albums/tracks/?client_id=\(K.Api.clientId)&format=jsonpretty&limit=\(limit)"
+        
         NetworkManager<AlbumResponse>.fetch(from: urlString) {
             (result) in
             switch result {
