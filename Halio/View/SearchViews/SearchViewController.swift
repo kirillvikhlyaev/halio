@@ -9,6 +9,7 @@ class SearchViewController : UIViewController {
     let autors = ["Selena Gomez","Capital cities","Walk The Moon","DNCE","Daniel Blume","Kush Kush","Zara Larsson","Duke Dumont","Taylor Swift","Lost frequencies","HDMI"]
     
     
+    private var networkFetcher = TrackFetcherManager()
     
     let backgroundColor = K.AppColors.primary
     let musicColor = UIColor(red: 254/255, green: 255/255, blue: 255/255, alpha: 0.5)
@@ -97,18 +98,19 @@ extension SearchViewController: UISearchResultsUpdating{
     }
     
     private func filterContentForSearchText(_ searchText: String ){
-        let filterItemIndex = songs.indices.filter{songs[$0].lowercased().contains(searchText.lowercased())}
-        filterAutors = filterItemIndex.map { autors[$0] }
-        print(filterItemIndex)
-        filterSongs = songs.filter{$0.lowercased().contains(searchText.lowercased())}
+        //        let filterItemIndex = songs.indices.filter{songs[$0].lowercased().contains(searchText.lowercased())}
+        //        filterAutors = filterItemIndex.map { autors[$0] }
+        //        print(filterItemIndex)
+                filterSongs = songs.filter{$0.lowercased().contains(searchText.lowercased())}
+                tableView.reloadData()
+        //        if filterItemIndex.isEmpty{
+        //            let filterItemIndex = autors.indices.filter{autors[$0].lowercased().contains(searchText.lowercased())}
+        //            filterAutors = autors.filter{$0.lowercased().contains(searchText.lowercased())}
+        //            print(filterItemIndex)
+        //            filterSongs = filterItemIndex.map { songs[$0] }
+        networkFetcher.trackFetch(limit: 10, searchText: searchText)
         tableView.reloadData()
-        if filterItemIndex.isEmpty{
-            let filterItemIndex = autors.indices.filter{autors[$0].lowercased().contains(searchText.lowercased())}
-            filterAutors = autors.filter{$0.lowercased().contains(searchText.lowercased())}
-            print(filterItemIndex)
-            filterSongs = filterItemIndex.map { songs[$0] }
-            tableView.reloadData()
-        }
     }
 }
+
 

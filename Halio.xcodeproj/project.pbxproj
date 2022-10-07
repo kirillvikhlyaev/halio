@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09D9924F28F0BB48002B28B9 /* AGSearchTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D9924E28F0BB48002B28B9 /* AGSearchTrack.swift */; };
+		09D9925128F0C207002B28B9 /* AGTrackFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D9925028F0C207002B28B9 /* AGTrackFetcher.swift */; };
 		2A12BE7528DDC2F400929F5B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A12BE7428DDC2F300929F5B /* ListViewController.swift */; };
 		2ABB2B1028DB1356001B36BB /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B0F28DB1356001B36BB /* SongCell.swift */; };
 		2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB2B1128DB1498001B36BB /* CollectionViewCell.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09D9924E28F0BB48002B28B9 /* AGSearchTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGSearchTrack.swift; sourceTree = "<group>"; };
+		09D9925028F0C207002B28B9 /* AGTrackFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTrackFetcher.swift; sourceTree = "<group>"; };
 		0BBDE5A2AA4DF194FA746E16 /* Pods-Halio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Halio.release.xcconfig"; path = "Target Support Files/Pods-Halio/Pods-Halio.release.xcconfig"; sourceTree = "<group>"; };
 		2A12BE7428DDC2F300929F5B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2ABB2B0F28DB1356001B36BB /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 			children = (
 				ED3109CC28E8472500B91360 /* AlbumFetcher.swift */,
 				ED59FFB928E8493E00256AD6 /* NetworkManager.swift */,
+				09D9925028F0C207002B28B9 /* AGTrackFetcher.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				ED3109C828E842E700B91360 /* Track.swift */,
+				09D9924E28F0BB48002B28B9 /* AGSearchTrack.swift */,
 				ED3109CA28E842F800B91360 /* Album.swift */,
 			);
 			path = Model;
@@ -307,6 +313,7 @@
 				ED3109C928E842E700B91360 /* Track.swift in Sources */,
 				EDC703D528D9108800A1B921 /* AppDelegate.swift in Sources */,
 				EDC7435128E863AE00DEF036 /* FavoritesListModel.swift in Sources */,
+				09D9924F28F0BB48002B28B9 /* AGSearchTrack.swift in Sources */,
 				2ABB2B1228DB1498001B36BB /* CollectionViewCell.swift in Sources */,
 				EDB1C97828D9E0AC00B03DF9 /* ProfileViewController.swift in Sources */,
 				ED4FEB4528DA56FD000764B2 /* PlayerViewController.swift in Sources */,
@@ -317,6 +324,7 @@
 				ED3109CD28E8472500B91360 /* AlbumFetcher.swift in Sources */,
 				ED59FFBA28E8493E00256AD6 /* NetworkManager.swift in Sources */,
 				2A12BE7528DDC2F400929F5B /* ListViewController.swift in Sources */,
+				09D9925128F0C207002B28B9 /* AGTrackFetcher.swift in Sources */,
 				EDB1C97B28D9E0F400B03DF9 /* Constants.swift in Sources */,
 				ED3109CB28E842F800B91360 /* Album.swift in Sources */,
 			);
