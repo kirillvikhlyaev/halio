@@ -18,9 +18,9 @@ struct Tracks: Codable {
     let duration: Int
     let artistName, albumName: String
     let albumImage, audio: String
-    let waveform: String
-    let image: String
-    let audiodownloadAllowed: Bool
+    let waveform: String //можно выбрать качество воспроизводимого аудио
+    let image: String //предпочтительно использовать его, если трек в альбоме то берется картинка альбома
+    let audiodownloadAllowed: Bool //насколько успел понять если композиция не закрыта для скачивания/прослушивания то тут будет true
 
     enum CodingKeys: String, CodingKey {
         case name, duration

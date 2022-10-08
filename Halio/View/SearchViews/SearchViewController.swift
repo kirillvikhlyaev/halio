@@ -4,10 +4,11 @@ import UIKit
 
 class SearchViewController : UIViewController {
     
-    let songs = ["Hit the lights","Safe and sound","Shut up and dance","Cake","Tonight","Sweet Bitter","Lush life","Ocean drive ","Shake it off","Reality","Sweet Babe"]
+//    let songs = ["Hit the lights","Safe and sound","Shut up and dance","Cake","Tonight","Sweet Bitter","Lush life","Ocean drive ","Shake it off","Reality","Sweet Babe"]
+//
+//    let autors = ["Selena Gomez","Capital cities","Walk The Moon","DNCE","Daniel Blume","Kush Kush","Zara Larsson","Duke Dumont","Taylor Swift","Lost frequencies","HDMI"]
     
-    let autors = ["Selena Gomez","Capital cities","Walk The Moon","DNCE","Daniel Blume","Kush Kush","Zara Larsson","Duke Dumont","Taylor Swift","Lost frequencies","HDMI"]
-    
+    var songs: [Tracks] = []
     
     private var networkFetcher = TrackFetcherManager()
     
@@ -32,6 +33,9 @@ class SearchViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Вызываем получение данных (срабатывет только при запуске отсюда)
+        getData()
+        
         view.backgroundColor = backgroundColor
         tableView.frame = view.bounds
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: indetifire)
@@ -45,6 +49,11 @@ class SearchViewController : UIViewController {
         searchController.searchBar.tintColor = K.AppColors.white
         navigationItem.searchController = searchController
         definesPresentationContext = true
+    }
+    
+    private func getData() {
+        networkFetcher.trackFetch(limit: 10, searchText: "pop")
+        networkFetcher.delegate = self
     }
 }
 
@@ -81,8 +90,8 @@ extension SearchViewController: UITableViewDataSource{
             itemAutor = filterAutors[indexPath.row]
         }
         else {
-            itemSong = songs[indexPath.row]
-            itemAutor = autors[indexPath.row]
+            itemSong = songs[indexPath.row].name
+            itemAutor = songs[indexPath.row].artistName
         }
         
         cell?.textLabel?.text = itemSong
@@ -96,13 +105,14 @@ extension SearchViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
-    
+ 
+    //так и не заработало ( при вводе текста в поиск запрос отправляется и парситься но не отображается  на экране )
     private func filterContentForSearchText(_ searchText: String ){
         //        let filterItemIndex = songs.indices.filter{songs[$0].lowercased().contains(searchText.lowercased())}
         //        filterAutors = filterItemIndex.map { autors[$0] }
         //        print(filterItemIndex)
-                filterSongs = songs.filter{$0.lowercased().contains(searchText.lowercased())}
-                tableView.reloadData()
+//                filterSongs = songs.filter{$0.lowercased().contains(searchText.lowercased())}
+//                tableView.reloadData()
         //        if filterItemIndex.isEmpty{
         //            let filterItemIndex = autors.indices.filter{autors[$0].lowercased().contains(searchText.lowercased())}
         //            filterAutors = autors.filter{$0.lowercased().contains(searchText.lowercased())}
@@ -110,6 +120,18 @@ extension SearchViewController: UISearchResultsUpdating{
         //            filterSongs = filterItemIndex.map { songs[$0] }
         networkFetcher.trackFetch(limit: 10, searchText: searchText)
         tableView.reloadData()
+    }
+}
+
+extension SearchViewController: TracksFetcher {
+    
+    func didUpdateTracks(result: [Tracks]) {
+        songs = result
+        tableView.reloadData()
+    }
+    
+    func didFailWithError() {
+        print("error get tracks")
     }
 }
 
