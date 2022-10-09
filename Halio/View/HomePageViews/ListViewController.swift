@@ -48,8 +48,10 @@ extension ListViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nextVC = PlayerViewController()
-        nextVC.album = album
-        nextVC.indexOfTrack = indexPath.row
+        nextVC.trackArtistName = album.artist_name
+        nextVC.trackImage = album.image
+        nextVC.trackUrl = album.tracks[indexPath.row].audio
+        nextVC.trackDuration = album.tracks[indexPath.row].duration
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
