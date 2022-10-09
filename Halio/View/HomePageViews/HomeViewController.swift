@@ -122,8 +122,12 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             [weak self] album, index in
             guard let self = self else { return }
             let nextVC = PlayerViewController()
-            nextVC.album = album
-            nextVC.indexOfTrack = index
+            nextVC.trackArtistName = album.artist_name
+            nextVC.trackImage = album.image
+            nextVC.trackUrl = album.tracks[index].audio
+            nextVC.trackDuration = album.tracks[index].duration
+            nextVC.trackName = album.tracks[index].name
+            
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
         cell.onNextTap = {

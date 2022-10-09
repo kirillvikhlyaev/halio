@@ -47,6 +47,7 @@ class SearchViewController : UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.tintColor = K.AppColors.white
+        
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
@@ -63,7 +64,14 @@ extension SearchViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(PlayerViewController(), animated: true)
+        let nextVC = PlayerViewController()
+        nextVC.trackArtistName = songs[indexPath.row].artistName
+        nextVC.trackImage = songs[indexPath.row].albumImage
+        nextVC.trackUrl = songs[indexPath.row].audio
+        nextVC.trackDuration = String(songs[indexPath.row].duration)
+        nextVC.trackName = songs[indexPath.row].name
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
@@ -104,8 +112,9 @@ extension SearchViewController: UITableViewDataSource{
 extension SearchViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
+        tableView.reloadData()
     }
- 
+    
     //так и не заработало ( при вводе текста в поиск запрос отправляется и парситься но не отображается  на экране )
     private func filterContentForSearchText(_ searchText: String ){
         //        let filterItemIndex = songs.indices.filter{songs[$0].lowercased().contains(searchText.lowercased())}
@@ -118,16 +127,21 @@ extension SearchViewController: UISearchResultsUpdating{
         //            filterAutors = autors.filter{$0.lowercased().contains(searchText.lowercased())}
         //            print(filterItemIndex)
         //            filterSongs = filterItemIndex.map { songs[$0] }
-        networkFetcher.trackFetch(limit: 10, searchText: searchText)
-        tableView.reloadData()
+        
+        networkFetcher.trackFetch(limit: 10, searchText: searchText.lowercased())
     }
+}
+extension SearchViewController: UISearchBarDelegate {
+    
 }
 
 extension SearchViewController: TracksFetcher {
     
     func didUpdateTracks(result: [Tracks]) {
         songs = result
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func didFailWithError() {

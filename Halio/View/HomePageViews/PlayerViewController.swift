@@ -16,9 +16,13 @@ class PlayerViewController: UIViewController {
     
     let slider = UISlider()
     
-    var album = Album(id: "1", name: "Test", artist_name: "Test", image: "", tracks: [Track(id: "1", name: "", duration: "", audio: "")])
+    //var album = Album(id: "1", name: "Test", artist_name: "Test", image: "", tracks: [Track(id: "1", name: "", duration: "", audio: "")])
+    var trackName = ""
+    var trackArtistName = ""
+    var trackUrl = ""
+    var trackDuration = ""
+    var trackImage = ""
     
-    var indexOfTrack = 0
     
     let infoView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
     
@@ -78,7 +82,7 @@ class PlayerViewController: UIViewController {
     }
     
     func setupBackground() {
-        let url = URL(string: album.image)
+        let url = URL(string: trackImage)
         background.frame = self.view.bounds
         background.backgroundColor = K.AppColors.primary
         
@@ -92,7 +96,7 @@ class PlayerViewController: UIViewController {
     }
     
     func setupInfo() {
-        let url = URL(string: album.image)
+        let url = URL(string: trackImage)
         let avatar = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
         avatar.kf.setImage(with: url)
         avatar.layer.masksToBounds = false
@@ -112,22 +116,22 @@ class PlayerViewController: UIViewController {
         backgroundAvatar.heightAnchor.constraint(equalToConstant: 220).isActive = true
         backgroundAvatar.addSubview(avatar)
         
-        let trackName = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-        trackName.text = album.tracks[indexOfTrack].name
-        trackName.font = .systemFont(ofSize: 21, weight: .regular)
-        trackName.textColor = K.AppColors.white
-        trackName.translatesAutoresizingMaskIntoConstraints = false
-        trackName.textAlignment = .center
+        let trackNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
+        trackNameLabel.text = trackName
+        trackNameLabel.font = .systemFont(ofSize: 21, weight: .regular)
+        trackNameLabel.textColor = K.AppColors.white
+        trackNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        trackNameLabel.textAlignment = .center
         
         let artistName = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-        artistName.text = album.artist_name
+        artistName.text = trackArtistName
         artistName.font = .systemFont(ofSize: 16, weight: .bold)
         artistName.textColor = K.AppColors.white
         artistName.translatesAutoresizingMaskIntoConstraints = false
         artistName.textAlignment = .center
         
         infoView.addSubview(backgroundAvatar)
-        infoView.addSubview(trackName)
+        infoView.addSubview(trackNameLabel)
         infoView.addSubview(artistName)
         mainStack.addArrangedSubview(infoView)
         
@@ -141,10 +145,10 @@ class PlayerViewController: UIViewController {
             avatar.centerXAnchor.constraint(equalTo: backgroundAvatar.centerXAnchor),
             avatar.centerYAnchor.constraint(equalTo: backgroundAvatar.centerYAnchor),
             
-            trackName.topAnchor.constraint(equalTo: backgroundAvatar.bottomAnchor, constant: +15),
-            trackName.centerXAnchor.constraint(equalTo: infoView.centerXAnchor),
+            trackNameLabel.topAnchor.constraint(equalTo: backgroundAvatar.bottomAnchor, constant: +15),
+            trackNameLabel.centerXAnchor.constraint(equalTo: infoView.centerXAnchor),
             
-            artistName.topAnchor.constraint(equalTo: trackName.bottomAnchor, constant: +5),
+            artistName.topAnchor.constraint(equalTo: trackNameLabel.bottomAnchor, constant: +5),
             artistName.centerXAnchor.constraint(equalTo: infoView.centerXAnchor)
         ])
         
@@ -177,7 +181,7 @@ class PlayerViewController: UIViewController {
     
     @objc func onPrevButtonTap() {}
     @objc func onPlayButtonTap() {
-        let url = URL(string: album.tracks[indexOfTrack].audio)
+        let url = URL(string: trackUrl)
        
         do {
             let playerItem = AVPlayerItem(url: url!)
@@ -221,17 +225,18 @@ class PlayerViewController: UIViewController {
     
     func setupIndicator() {
         slider.value = 0
-        slider.maximumValue = Float(album.tracks[indexOfTrack].duration)!
+        slider.maximumValue = Float(trackDuration)!
         slider.tintColor = K.AppColors.secondary
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.addTarget(self, action: #selector(didSlider(_:)), for: .valueChanged)
         
         currentTime.font = .systemFont(ofSize: 16, weight: .regular)
         currentTime.textColor = K.AppColors.white
+        currentTime.text = "0:00"
         currentTime.textAlignment = .center
         
         let maxTime = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-        maxTime.text = Utils.timeStringFor(seconds: Int(album.tracks[indexOfTrack].duration)!)
+        maxTime.text = Utils.timeStringFor(seconds: Int(trackDuration)!)
         maxTime.font = .systemFont(ofSize: 16, weight: .regular)
         maxTime.textColor = K.AppColors.white
         maxTime.textAlignment = .center
