@@ -1,0 +1,6 @@
+framework module Pods_Halio {
+  umbrella header "Pods-Halio-umbrella.h"
+
+  export *
+  module * { export * }
+}
